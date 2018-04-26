@@ -19,21 +19,21 @@ public class Test {
 
         double weightDinoKg = DinoWeightConverter.convertToKg(weightDinoGram);
 
-        print("The weight of dinosaur equals " + weightDinoKg + " kg");
+        print("The weight of dinosaur equals " + weightDinoKg + " kg \n");
 
-        print("");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         double r1 = 7;
         double r2 = 3;
         double S = RingSquareCalculator.countSquare(r1, r2);
 
-        print("S" + "=" + S);
+        print("S" + "=" + S + "\n");
 
-        print("");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         int a = 10;
         int b = 20;
@@ -45,9 +45,8 @@ public class Test {
         b = swapper.getB();
 
         print("a" + "=" + a);
-        print("b" + "=" + b);
+        print("b" + "=" + b + "\n");
 
-        print("");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -58,11 +57,11 @@ public class Test {
                 : (NumRowChecker.checkIfDecreasing(n)) ? "The digits of the number N form a decreasing sequence"
                 : "The digits of the number N do not form an increasing or decreasing sequence";
 
-        print(result);
+        print(result + "\n");
 
-        print("");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         int n5 = 56389;
 
@@ -70,11 +69,11 @@ public class Test {
         int product = DigitsCounter.multiplyDigits(n5);
 
         print("The amount of digits of the number N equals " + amount);
-        print("The product of digits of the number N equals " + product);
+        print("The product of digits of the number N equals " + product + "\n");
 
-        print("");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         int n6 = 345678;
 
@@ -82,11 +81,11 @@ public class Test {
         double geoMean = MeanCounter.countGeometricMean(n6);
 
         print("The arithmetical mean of digits of the number N equals " + arMean);
-        print("The geometrical mean of digits of the number N equals " + geoMean);
+        print("The geometrical mean of digits of the number N equals " + geoMean + "\n");
 
-        print("");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         int n7 = 1234567;
         int reversedN = Reverser.reverse(n7);
