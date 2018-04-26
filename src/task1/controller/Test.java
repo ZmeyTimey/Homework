@@ -6,6 +6,7 @@ import static task1.view.Viewer.print;
 
 /**
  * Created by Тимей on 26.04.2018.
+ *
  */
 public class Test {
 
@@ -16,14 +17,13 @@ public class Test {
 
         print("The weight of dinosaur equals " + weightDinoTon + " ton");
 
-
         double weightDinoKg = DinoWeightConverter.convertToKg(weightDinoGram);
 
         print("The weight of dinosaur equals " + weightDinoKg + " kg");
 
-
         print("");
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         double r1 = 7;
         double r2 = 3;
@@ -31,9 +31,9 @@ public class Test {
 
         print("S" + "=" + S);
 
-
         print("");
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         int a = 10;
         int b = 20;
@@ -47,9 +47,9 @@ public class Test {
         print("a" + "=" + a);
         print("b" + "=" + b);
 
-
         print("");
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         int n = 1369;
 
@@ -60,9 +60,9 @@ public class Test {
 
         print(result);
 
-
         print("");
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         int n5 = 56389;
 
@@ -72,9 +72,9 @@ public class Test {
         print("The amount of digits of the number N equals " + amount);
         print("The product of digits of the number N equals " + product);
 
-
         print("");
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         int n6 = 345678;
 
@@ -84,9 +84,9 @@ public class Test {
         print("The arithmetical mean of digits of the number N equals " + arMean);
         print("The geometrical mean of digits of the number N equals " + geoMean);
 
-
         print("");
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         int n7 = 1234567;
         int reversedN = Reverser.reverse(n7);
