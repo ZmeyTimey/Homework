@@ -2,6 +2,9 @@ package task2.controller;
 
 import task2.model.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import static task2.view.Viewer.print;
@@ -13,7 +16,7 @@ import static task2.view.Viewer.printDate;
  */
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         int dragonAge = 369;
 
@@ -39,29 +42,31 @@ public class Test {
                 if (letterCount > 1) {
                     print("You can enter only one letter!");
                 }
+
                 else {
                     letter = temp.charAt(0);
                     break;
                 }
             }
 
-            if (LetterIdentifier.isVowel(letter))
-            {print("This letter is vowel \n");}
+            if (LetterIdentifier.isVowel(letter)) {
+                print("This letter is vowel \n");
+            }
 
             else {
 
-                if (LetterIdentifier.isConsonant(letter))
-                {print("this letter is consonant \n");}
+                if (LetterIdentifier.isConsonant(letter)) {
+                    print("this letter is consonant \n");
+                }
 
-                else
-                {print("A bullshit you entered is not a letter \n");}
+                else {
+                    print("A bullshit you entered is not a letter \n");
+                }
             }
 
+        } catch (Exception e) {
+            print(e);
         }
-
-            catch(Exception e){
-                print(e);
-            }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -82,25 +87,25 @@ public class Test {
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int number;
 
         while (true) {
 
             print("Input number (from 0 to 999):");
-            number = scan.nextInt();
+            number = Integer.parseInt(reader.readLine());
 
-            if (number >= 0 && number <= 999) {
+            if (NumberToStringConverter.numberIsValid(number)) {
 
                 print("The number as a string:");
                 print(NumberToStringConverter.convert(number));
 
                 break;
             }
-
             else {
                 print("Invalid input. Try again");
             }
         }
 
-        }
     }
+}

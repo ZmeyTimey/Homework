@@ -6,6 +6,12 @@ package task2.model;
  */
 public class NumberToStringConverter {
 
+    private static final int LOWER_BOUND = 0;
+    private static final int UPPER_BOUND = 999;
+
+    private static final int SECOND_DIGIT_COEFFICIENT = 10;
+    private static final int THIRD_DIGIT_COEFFICIENT = 100;
+
     public static String convert(int number) {
 
         String converted = "";
@@ -27,12 +33,19 @@ public class NumberToStringConverter {
 
             case 3: {
 
-                converted = convertOneDigit(number / 100) + " hundred " + convertTwoDigits(number % 100);
+                converted = convertOneDigit(number / THIRD_DIGIT_COEFFICIENT)
+                        + " hundred " + convertTwoDigits(number % THIRD_DIGIT_COEFFICIENT);
                 break;
             }
         }
 
         return converted;
+    }
+
+
+    public static boolean numberIsValid(int number) {
+
+        return number >= LOWER_BOUND && number <= UPPER_BOUND;
     }
 
 
@@ -76,17 +89,17 @@ public class NumberToStringConverter {
 
         String converted = "";
 
-        if (num / 10 == 1) {
+        if (num / SECOND_DIGIT_COEFFICIENT == 1) {
 
-            converted = convertTeen(num % 10);
+            converted = convertTeen(num % SECOND_DIGIT_COEFFICIENT);
         }
 
         else {
 
-            converted = convertSecondDigit(num / 10) + " ";
-            if (num % 10 != 0) {
+            converted = convertSecondDigit(num / SECOND_DIGIT_COEFFICIENT) + " ";
+            if (num % SECOND_DIGIT_COEFFICIENT != 0) {
 
-                converted += convertOneDigit(num % 10);
+                converted += convertOneDigit(num % SECOND_DIGIT_COEFFICIENT);
             }
         }
 

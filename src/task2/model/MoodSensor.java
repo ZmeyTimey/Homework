@@ -6,12 +6,14 @@ package task2.model;
  */
 public class MoodSensor {
 
+    private static final int COEFFICIENT_FOR_RANDOM_NUMBER = 10;
+
     public static String getMood() {
 
         double randomNumber = Math.random();
         String mood = "";
 
-        switch ((int) (randomNumber * 10)) {
+        switch ((int) (randomNumber * COEFFICIENT_FOR_RANDOM_NUMBER)) {
             case 0: mood = "X_x"; break;
             case 1: mood = "(=_=)"; break;
             case 2: mood = "(T_T)"; break;

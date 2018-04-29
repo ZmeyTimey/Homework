@@ -6,20 +6,28 @@ package task2.model;
  */
 public class DragonHeadsCounter {
 
+    private static final int DRAGON_AGE_LIMIT_ONE = 200;
+    private static final int DRAGON_AGE_LIMIT_TWO = 300;
+
+    private static final int HEADS_INCREASE_ONE = 3;
+    private static final int HEADS_INCREASE_TWO = 2;
+    private static final int HEADS_INCREASE_THREE = 1;
+
+    private static final int EYES_ON_ONE_HEAD = 2;
     public static int countHeads(int age) {
 
         int heads = 0;
 
         for (int i = 1; i < age; i++) {
-            if (i > 200 & i < 300) {
-                heads = heads + 2;
+            if (i > DRAGON_AGE_LIMIT_ONE & i < DRAGON_AGE_LIMIT_TWO) {
+                heads = heads + HEADS_INCREASE_TWO;
             }
             else {
-                if (i > 300) {
-                    heads = heads + 1;
+                if (i > DRAGON_AGE_LIMIT_TWO) {
+                    heads = heads + HEADS_INCREASE_THREE;
                 }
                 else {
-                    heads = heads + 3;
+                    heads = heads + HEADS_INCREASE_ONE;
                 }
             }
         }
@@ -28,6 +36,6 @@ public class DragonHeadsCounter {
 
     public static int countEyes(int heads) {
 
-        return (2 * heads);
+        return (EYES_ON_ONE_HEAD * heads);
     }
 }
