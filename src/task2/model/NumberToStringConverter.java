@@ -87,7 +87,7 @@ public class NumberToStringConverter {
 
     private static String convertTwoDigits(int num) {
 
-        String converted = "";
+        String converted;
 
         if (num / SECOND_DIGIT_COEFFICIENT == 1) {
 
