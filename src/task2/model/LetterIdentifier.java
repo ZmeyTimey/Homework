@@ -6,41 +6,99 @@ package task2.model;
  */
 public class LetterIdentifier {
 
-    public static boolean isVowel(char letter) {
+    private static final String VOWELS = "aeiouyаеёиоуыэюя";
+    private static final String CONSONANTS = "bcdfghjklmnpqrstvwxzбвгджзйклмнпрсхцчшщ";
 
-        return (letter == 'a' || letter == 'A' || letter == 'e' || letter == 'E'
-                || letter == 'i' || letter == 'I' || letter == 'o' || letter == 'O'
-                || letter == 'u' || letter == 'U' || letter == 'y' || letter == 'Y'
-                || letter == 'а' || letter == 'А' || letter == 'е' || letter == 'Е'
-                || letter == 'ё' || letter == 'Ё' || letter == 'и' || letter == 'И'
-                || letter == 'о' || letter == 'О' || letter == 'у' || letter == 'У'
-                || letter == 'ы' || letter == 'Ы' || letter == 'э' || letter == 'Э'
-                || letter == 'ю' || letter == 'Ю' || letter == 'я' || letter == 'Я');
+    public static boolean isVowel1(char letter) {
+
+        letter = Character.toLowerCase(letter);
+
+        return (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o'
+                || letter == 'u' || letter == 'y' || letter == 'а' || letter == 'е'
+                || letter == 'ё' ||  letter == 'и' || letter == 'о' ||  letter == 'у'
+                || letter == 'ы' ||  letter == 'э' || letter == 'ю' || letter == 'я');
     }
 
 
-    public static boolean isConsonant(char letter) {
+    public static boolean isConsonant1(char letter) {
 
-        return (letter == 'b' || letter == 'B' || letter == 'c' || letter == 'C'
-                || letter == 'd' || letter == 'D' || letter == 'f' || letter == 'F'
-                || letter == 'g' || letter == 'G' || letter == 'h' || letter == 'H'
-                || letter == 'j' || letter == 'J' || letter == 'k' || letter == 'K'
-                || letter == 'l' || letter == 'L' || letter == 'm' || letter == 'M'
-                || letter == 'n' || letter == 'N' || letter == 'p' || letter == 'P'
-                || letter == 'q' || letter == 'Q' || letter == 'r' || letter == 'R'
-                || letter == 's' || letter == 'S' || letter == 't' || letter == 'T'
-                || letter == 'v' || letter == 'V' || letter == 'w' || letter == 'W'
-                || letter == 'x' || letter == 'X' || letter == 'z' || letter == 'Z'
-                || letter == 'б' || letter == 'Б' || letter == 'в' || letter == 'В'
-                || letter == 'г' || letter == 'Г' || letter == 'д' || letter == 'Д'
-                || letter == 'ж' || letter == 'Ж' || letter == 'з' || letter == 'З'
-                || letter == 'й' || letter == 'Й' || letter == 'к' || letter == 'К'
-                || letter == 'л' || letter == 'Л' || letter == 'м' || letter == 'М'
-                || letter == 'н' || letter == 'Н' || letter == 'п' || letter == 'П'
-                || letter == 'р' || letter == 'Р' || letter == 'с' || letter == 'С'
-                || letter == 'т' || letter == 'Т' || letter == 'ф' || letter == 'Ф'
-                || letter == 'х' || letter == 'Х' || letter == 'ц' || letter == 'Ц'
-                || letter == 'ч' || letter == 'Ч' || letter == 'ш' || letter == 'Ш'
-                || letter == 'щ' || letter == 'Щ');
+        letter = Character.toLowerCase(letter);
+
+        return (letter == 'b' || letter == 'c' || letter == 'd' || letter == 'f'
+                || letter == 'g' || letter == 'h' || letter == 'j' || letter == 'k'
+                || letter == 'l' || letter == 'm' || letter == 'n' || letter == 'p'
+                || letter == 'q' || letter == 'r' || letter == 's' || letter == 't'
+                || letter == 'v' || letter == 'w' || letter == 'x' || letter == 'z'
+                || letter == 'б' || letter == 'в' || letter == 'г' || letter == 'д'
+                || letter == 'ж' || letter == 'з' || letter == 'й' || letter == 'к'
+                || letter == 'л' || letter == 'м' || letter == 'н' || letter == 'п'
+                || letter == 'р' || letter == 'с' || letter == 'т' || letter == 'ф'
+                || letter == 'х' || letter == 'ц' || letter == 'ч' || letter == 'ш'
+                || letter == 'щ');
     }
-}
+
+
+    public static boolean isVowel2(char letter) {
+
+        letter = Character.toLowerCase(letter);
+
+        return (VOWELS.contains(Character.toString(Character.toLowerCase(letter))));
+        }
+
+    public static boolean isConsonant2(char letter) {
+
+        letter = Character.toLowerCase(letter);
+
+        return (CONSONANTS.contains(Character.toString(Character.toLowerCase(letter))));
+    }
+
+    public static boolean isVowel3(char letter) {
+
+        letter = Character.toLowerCase(letter);
+
+        return VOWELS.indexOf(Character.toLowerCase(letter)) != -1;
+    }
+
+
+    public static boolean checkIfConsonant3(char letter) {
+
+        letter = Character.toLowerCase(letter);
+
+        return CONSONANTS.indexOf(Character.toLowerCase(letter)) != -1;
+        }
+
+    public static boolean isVowel4(char letter) {
+
+        letter = Character.toLowerCase(letter);
+
+        boolean isVowel = false;
+
+        char[] vowels = VOWELS.toCharArray();
+
+        for (char l : vowels) {
+            if (letter == l) {
+                isVowel = true;
+                break;
+            }
+        }
+        return isVowel;
+    }
+
+     public static boolean checkIfConsonant6(char letter) {
+
+         letter = Character.toLowerCase(letter);
+
+            boolean isConsonant = false;
+
+            char[] consonants = CONSONANTS.toCharArray();
+
+            for (char v : consonants) {
+                if (letter == v) {
+                    isConsonant = true;
+                    break;
+                }
+            }
+            return isConsonant;
+        }
+
+    }

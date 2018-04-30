@@ -9,33 +9,33 @@ public class NumberToStringConverter {
     private static final int LOWER_BOUND = 0;
     private static final int UPPER_BOUND = 999;
 
-    private static final int SECOND_DIGIT_COEFFICIENT = 10;
-    private static final int THIRD_DIGIT_COEFFICIENT = 100;
-
     public static String convert(int number) {
 
+        final int FIRST_DIGIT = number / 100;
+        final int SECOND_DIGIT = (number / 10) % 10;
+        final int THIRD_DIGIT = number % 10;
+
         String converted = "";
-        int digits = countDigits(number);
 
-        switch (digits) {
+        if (FIRST_DIGIT != 0) {
+            converted += convertOneDigit(FIRST_DIGIT) + " hundred ";
+        }
 
-            case 1: {
+        if (FIRST_DIGIT != 0 && ! (SECOND_DIGIT == 0 && THIRD_DIGIT == 0)) {
+            converted += "and ";
+        }
 
-                converted = convertOneDigit(number);
-                break;
+        if (SECOND_DIGIT != 0) {
+            converted += ((SECOND_DIGIT == 1) ? convertTeens(THIRD_DIGIT) : convertDozens(SECOND_DIGIT) + " ");
+        }
+
+        if (SECOND_DIGIT != 1) {
+
+            if (THIRD_DIGIT != 0) {
+                converted += convertOneDigit(THIRD_DIGIT);
             }
-
-            case 2: {
-
-                converted = convertTwoDigits(number);
-                break;
-            }
-
-            case 3: {
-
-                converted = convertOneDigit(number / THIRD_DIGIT_COEFFICIENT)
-                        + " hundred " + convertTwoDigits(number % THIRD_DIGIT_COEFFICIENT);
-                break;
+            else {
+                converted += (SECOND_DIGIT == 0 && FIRST_DIGIT == 0) ? convertOneDigit(THIRD_DIGIT) : "";
             }
         }
 
@@ -46,20 +46,6 @@ public class NumberToStringConverter {
     public static boolean numberIsValid(int number) {
 
         return number >= LOWER_BOUND && number <= UPPER_BOUND;
-    }
-
-
-    private static int countDigits(int num) {
-
-        int sum = 0;
-
-        while (num > 1) {
-
-            sum++;
-            num /= 10;
-        }
-
-        return sum;
     }
 
 
@@ -85,29 +71,7 @@ public class NumberToStringConverter {
     }
 
 
-    private static String convertTwoDigits(int num) {
-
-        String converted;
-
-        if (num / SECOND_DIGIT_COEFFICIENT == 1) {
-
-            converted = convertTeen(num % SECOND_DIGIT_COEFFICIENT);
-        }
-
-        else {
-
-            converted = convertSecondDigit(num / SECOND_DIGIT_COEFFICIENT) + " ";
-            if (num % SECOND_DIGIT_COEFFICIENT != 0) {
-
-                converted += convertOneDigit(num % SECOND_DIGIT_COEFFICIENT);
-            }
-        }
-
-        return converted;
-    }
-
-
-    private static String convertTeen(int digit) {
+    private static String convertTeens(int digit) {
 
         String converted = "";
 
@@ -129,7 +93,7 @@ public class NumberToStringConverter {
     }
 
 
-    private static String convertSecondDigit(int digit) {
+    private static String convertDozens(int digit) {
 
         String converted = "";
 

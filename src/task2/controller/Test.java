@@ -2,9 +2,7 @@ package task2.controller;
 
 import task2.model.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import static task2.view.Viewer.print;
@@ -49,13 +47,13 @@ public class Test {
                 }
             }
 
-            if (LetterIdentifier.isVowel(letter)) {
+            if (LetterIdentifier.isVowel1(letter)) {
                 print("This letter is vowel \n");
             }
 
             else {
 
-                if (LetterIdentifier.isConsonant(letter)) {
+                if (LetterIdentifier.isConsonant1(letter)) {
                     print("this letter is consonant \n");
                 }
 
@@ -87,13 +85,12 @@ public class Test {
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int number;
 
         while (true) {
 
             print("Input number (from 0 to 999):");
-            number = Integer.parseInt(reader.readLine());
+            number = scan.nextInt();
 
             if (NumberToStringConverter.numberIsValid(number)) {
 
