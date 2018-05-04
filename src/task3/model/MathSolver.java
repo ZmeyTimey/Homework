@@ -24,6 +24,10 @@ public class MathSolver {
                 largestDigit = number % 10;
             }
 
+            if (largestDigit == 9) {
+                break;
+            }
+
             number /= 10;
         }
         return largestDigit;
