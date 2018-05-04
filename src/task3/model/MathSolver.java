@@ -60,7 +60,7 @@ public class MathSolver {
 
         boolean primeNumber = true;
 
-        for (int i = LEAST_DIVISOR; i < num; i++) {
+        for (int i = LEAST_DIVISOR; i <= num / 2; i++) {
             if (num % i == 0) {
                 primeNumber = false;
             }
