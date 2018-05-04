@@ -31,7 +31,7 @@ public class MathSolver {
         boolean palindrome = true;
         int digits = countDigits(num);
 
-        for (int i = 1; i < digits / 2; i++) {
+        for (int i = 1; i <= digits / 2; i++) {
 
             if (num % 10 != (num / (int) Math.pow(10, digits - 1))) {
                 palindrome = false;
@@ -48,7 +48,7 @@ public class MathSolver {
         int digits = 0;
 
         while (num > 0) {
-            digits ++;
+            digits++;
             num /= 10;
         }
         return digits;
@@ -74,12 +74,14 @@ public class MathSolver {
 
         String divisorsString = "1";
 
-        for (int i = LEAST_DIVISOR; i <= num; i++) {
+        for (int i = LEAST_DIVISOR; i <= num /2; i++) {
 
             if (num % i == 0 && checkIfPrime(i)) {
                 divisorsString = divisorsString + ", " + Integer.toString(i);
             }
         }
+        divisorsString += ", "  + num;
+
         return divisorsString;
     }
 
@@ -101,22 +103,7 @@ public class MathSolver {
 
     public static int getLCM(int a, int b) {
 
-        int LCM = 1;
-        for (int i = getGreaterNumber(a, b); i <= a * b; i++) {
-
-            if (i % a == 0 && i % b == 0) {
-                LCM = i;
-                break;
-            }
-        }
-        return LCM;
-    }
-
-    private static int getGreaterNumber(int a, int b) {
-        if (a > b)
-            return a;
-        else
-            return b;
+        return a * b / getGCD(a, b);
     }
 
     private static int getSmallerNumber(int a, int b) {
@@ -139,7 +126,7 @@ public class MathSolver {
 
             if (digitsString.contains(digit)) {
                 digitsString = digitsString.replace(digit, "");
-                differentDigits ++;
+                differentDigits++;
             }
 
             num /= 10;
