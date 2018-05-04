@@ -26,22 +26,21 @@ public class Test {
         int number = 35453;
         int a = 26;
         int b = 250;
+        String msg;
 
         print("The largest digit of a given number is " + MathSolver.getLargestDigit(number));
 
-        if (MathSolver.checkIfPalindrome(number)) {
-            print("Number " + number + " is a palindrome \n");
-        }
-        else {
-            print("Number " + number + " is not a palindrome \n");
-        }
+        msg = MathSolver.checkIfPalindrome(number)
+                ? "Number " + number + " is a palindrome \n"
+                : "Number " + number + " is not a palindrome \n";
 
-        if (MathSolver.checkIfPrime(number)) {
-            print("Number " + number + " is prime \n");
-        }
-        else {
-            print("Number " + number + " is not prime \n");
-        }
+        print(msg);
+
+        msg = MathSolver.checkIfPrime(number)
+                ? "Number " + number + " is prime \n"
+                : "Number " + number + " is not prime \n";
+
+        print(msg);
 
         print("Prime divisors of the number " + number + " are:");
         print(MathSolver.getPrimeDivisors(number) + "\n");
@@ -55,12 +54,10 @@ public class Test {
 
         int perfectNumber = 496;
 
-        if (PerfectNumberChecker.check(perfectNumber)) {
-            print("Number " + perfectNumber + "  is perfect");
-        }
+        msg = PerfectNumberChecker.check(perfectNumber)
+                ? "Number " + perfectNumber + " is perfect"
+                : "Number " + perfectNumber + " is not perfect";
 
-        else {
-            print("Number " + perfectNumber + "  is not perfect");
-        }
+        print(msg);
     }
 }
