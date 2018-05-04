@@ -31,7 +31,7 @@ public class MathSolver {
         boolean palindrome = true;
         int digits = countDigits(num);
 
-        for (int i = 1; i < digits / 2; i++) {
+        for (int i = 1; i <= digits / 2; i++) {
 
             if (num % 10 != (num / (int) Math.pow(10, digits - 1))) {
                 palindrome = false;
