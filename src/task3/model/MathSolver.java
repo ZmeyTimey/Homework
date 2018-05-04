@@ -1,5 +1,8 @@
 package task3.model;
 
+import task3.exceptions.NotNaturalNumberException;
+
+import static task3.validator.Validator.*;
 
 /**
  * Created by Тимей on 02.05.2018.
@@ -9,7 +12,9 @@ public class MathSolver {
 
     private static final int LEAST_DIVISOR = 2;
 
-    public static int getLargestDigit(int number) {
+    public static int getLargestDigit(int number) throws NotNaturalNumberException {
+
+        validate(number);
 
         int largestDigit = 0;
 
@@ -26,7 +31,9 @@ public class MathSolver {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static boolean checkIfPalindrome(int num) {
+    public static boolean checkIfPalindrome(int num) throws NotNaturalNumberException {
+
+        validate(num);
 
         boolean palindrome = true;
         int digits = countDigits(num);
@@ -43,7 +50,9 @@ public class MathSolver {
         return palindrome;
     }
 
-    private static int countDigits(int num) {
+    private static int countDigits(int num) throws NotNaturalNumberException {
+
+        validate(num);
 
         int digits = 0;
 
@@ -56,7 +65,7 @@ public class MathSolver {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static boolean checkIfPrime(int num) {
+    public static boolean checkIfPrime(int num) throws NotNaturalNumberException {
 
         boolean primeNumber = true;
 
@@ -70,7 +79,9 @@ public class MathSolver {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static String getPrimeDivisors(int num) {
+    public static String getPrimeDivisors(int num) throws NotNaturalNumberException {
+
+        validate(num);
 
         String divisorsString = "1";
 
@@ -87,7 +98,9 @@ public class MathSolver {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static int getGCD(int a, int b) {
+    public static int getGCD(int a, int b) throws NotNaturalNumberException {
+
+        validate(a, b);
 
         int GCD = 1;
 
@@ -101,7 +114,7 @@ public class MathSolver {
         return GCD;
     }
 
-    public static int getLCM(int a, int b) {
+    public static int getLCM(int a, int b) throws NotNaturalNumberException {
 
         return a * b / getGCD(a, b);
     }
@@ -115,7 +128,9 @@ public class MathSolver {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public static int countDifferentDigits(int num) {
+    public static int countDifferentDigits(int num) throws NotNaturalNumberException {
+
+        validate(num);
 
         int digits = countDigits(num);
         String digitsString = Integer.toString(num);
