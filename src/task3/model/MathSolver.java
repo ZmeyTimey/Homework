@@ -28,16 +28,19 @@ public class MathSolver {
 
     public static boolean checkIfPalindrome(int num) {
 
+        boolean palindrome = true;
         int digits = countDigits(num);
-        int firstHalf = num / (int) Math.pow(10, digits / 2);
-        System.out.println(firstHalf);
 
-        int secondHalf = (digits & 1) == 0
-                ? num % (int) Math.pow(10, digits / 2)
-                : num % (int) Math.pow(10, digits / 2 + 1);
-        System.out.println(secondHalf);
+        for (int i = 1; i < digits / 2; i++) {
 
-        return (firstHalf == secondHalf);
+            if (num % 10 != (num / (int) Math.pow(10, digits - 1))) {
+                palindrome = false;
+            }
+
+            num /= 10;
+            num = num % (int) Math.pow(10, digits - 1);
+        }
+        return palindrome;
     }
 
     private static int countDigits(int num) {
